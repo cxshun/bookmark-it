@@ -8,5 +8,6 @@
                            http://www.springframework.org/schema/mvc http://springframework.org/schema/mvc/spring-mvc.xsd">
 
     <context:annotation-config />
+    <context:component-scan base-package="com.bookmark" />
     <mvc:annotation-driven />
 </beans>
