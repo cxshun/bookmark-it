@@ -10,7 +10,7 @@ public class Item {
     private String title;
     private String logoUrl;
     private String url;
-    private String snapShot;
+    private String intro;
 
     public String getLogoUrl() {
         return logoUrl;
@@ -44,11 +44,11 @@ public class Item {
         this.url = url;
     }
 
-    public String getSnapShot() {
-        return snapShot;
+    public String getIntro() {
+        return intro;
     }
 
-    public void setSnapShot(String snapShot) {
-        this.snapShot = snapShot;
+    public void setIntro(String intro) {
+        this.intro = intro;
     }
 }
