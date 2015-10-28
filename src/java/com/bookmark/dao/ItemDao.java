@@ -3,9 +3,13 @@ package com.bookmark.dao;
 import com.bookmark.domain.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -50,7 +54,24 @@ public class ItemDao {
     public List<Item> list(int page, int pageSize) {
         jdbcTemplate.setFetchSize(pageSize);
         jdbcTemplate.setMaxRows((page - 1) * pageSize);
-        return jdbcTemplate.queryForList("select * from item", Item.class);
+        return jdbcTemplate.queryForObject("select * from item", new RowMapper<List<Item>>() {
+            @Override
+            public List<Item> mapRow(ResultSet rs, int rowNum) throws SQLException {
+                List<Item> itemList = new ArrayList<Item>();
+                while (rs.next()) {
+                    Item item = new Item();
+                    item.setId(rs.getInt("id"));
+                    item.setIntro(rs.getString("intro"));
+                    item.setLogoUrl(rs.getString("logo_url"));
+                    item.setTitle(rs.getString("title"));
+                    item.setUrl(rs.getString("url"));
+
+                    itemList.add(item);
+                }
+
+                return itemList;
+            }
+        });
     }
 
 }
