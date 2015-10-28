@@ -41,23 +41,23 @@
                     <h4 class="modal-title">添加网站</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" method="post" action="">
+                    <form class="form-horizontal" method="post" action="<c:url value='/item/create' />">
                         <div class="form-group">
                             <label for="title" class="col-sm-2 control-label">标题</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="title" placeholder="标题" />
+                                <input type="text" class="form-control" id="title" name="title" placeholder="标题" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="url" class="col-sm-2 control-label">网址</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="url" placeholder="URL" />
+                                <input type="text" class="form-control" id="url" name="url" placeholder="URL" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="intro" class="col-sm-2 control-label">描述</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="intro" placeholder="intro" />
+                                <input type="text" class="form-control" id="intro" name="intro" placeholder="intro" />
                             </div>
                         </div>
                         <div class="form-group">
