@@ -55,7 +55,7 @@ public class Item {
     @RequestMapping("/list/{page}")
     public ModelAndView list(@PathVariable("page") int page) {
         List<com.bookmark.domain.Item> itemList = itemService.list(page, DEFAULT_PAGESIZE);
-        ModelAndView mav = new ModelAndView("/index.jsp");
+        ModelAndView mav = new ModelAndView("/WEB-INF/pages/index.jsp");
         mav.addObject("items", itemList);
         return mav;
     }

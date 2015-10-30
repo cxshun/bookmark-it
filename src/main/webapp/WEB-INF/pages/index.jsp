@@ -2,10 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-    <link type="text/css" rel="stylesheet" href="<c:url value='/style/bootstrap/css/bootstrap.min.css' />" />
-    <script src="<c:url value='/script/jquery-1.11.3.min.js' />"></script>
-    <script src="<c:url value='/script/angular.min.js' />"></script>
-    <script src="<c:url value='/style/bootstrap/js/bootstrap.min.js' />"></script>
+    <%@include file="/WEB-INF/pages/include/header.jsp"%>
     <title>书签管理</title>
     <style>
         .item {
@@ -17,18 +14,12 @@
     </style>
 </head>
 <body>
+    <%@include file="/WEB-INF/pages/include/sidebar.jsp"%>
     <div class="container">
-        <div class="pull-right">
-            <span>
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addDlg">
-                    添加
-                </button>
-            </span>
-        </div>
         <c:forEach items="${items}" var="item">
             <div class="item">
                 <img src="${item.logoUrl}" />
-                <span>${item}</span>
+                <span>${item.title}</span>
             </div>
         </c:forEach>
     </div>
