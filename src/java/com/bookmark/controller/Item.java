@@ -32,7 +32,7 @@ public class Item {
     @RequestMapping(value = "/create", method = {RequestMethod.POST}, produces = {"application/json"})
     public ModelAndView create(@ModelAttribute com.bookmark.domain.Item item) {
         itemService.create(item);
-        return new ModelAndView("redirect:/item/list/1");
+        return list(1);
     }
 
     /**
@@ -43,8 +43,7 @@ public class Item {
     @RequestMapping("/delete/{id}")
     public ModelAndView delete(@PathVariable("id") int id) {
         itemService.delete(id);
-        ModelAndView mav = new ModelAndView();
-        return mav;
+        return list(1);
     }
 
     /**
@@ -58,6 +57,17 @@ public class Item {
         ModelAndView mav = new ModelAndView("/WEB-INF/pages/index.jsp");
         mav.addObject("items", itemList);
         return mav;
+    }
+
+    /**
+     * 更新项目信息
+     * @param item
+     * @return
+     */
+    @RequestMapping(value = "/update", method = {RequestMethod.POST})
+    public ModelAndView update(@ModelAttribute com.bookmark.domain.Item item) {
+        itemService.update(item);
+        return list(1);
     }
 
 }

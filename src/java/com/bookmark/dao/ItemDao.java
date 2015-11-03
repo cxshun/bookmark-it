@@ -46,6 +46,16 @@ public class ItemDao {
     }
 
     /**
+     * 更新项目
+     * @param item
+     * @return
+     */
+    public boolean update(Item item) {
+        String sql = "update item set title = '%s', logo_url = '%s', url = '%s', intro = '%s' where id = %d";
+        return jdbcTemplate.update(String.format(sql, item.getTitle(), item.getLogoUrl(), item.getUrl(), item.getIntro(), item.getId())) > 0;
+    }
+
+    /**
      * 查询项目列表
      * @param page
      * @param pageSize

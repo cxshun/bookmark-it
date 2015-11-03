@@ -44,4 +44,13 @@ public class ItemService {
         return itemDao.list(page, pageSize);
     }
 
+    /**
+     * 更新项目信息
+     * @param item
+     * @return
+     */
+    public boolean update(Item item) {
+        return itemDao.update(item);
+    }
+
 }
