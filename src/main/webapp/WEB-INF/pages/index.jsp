@@ -6,8 +6,8 @@
     <title>书签管理</title>
     <style>
         .item {
-            width: 220px;
-            height: 240px;
+            width: 20%;
+            height: 20%;
             margin: 10px 10px;
             float:left;
         }
@@ -16,10 +16,16 @@
 <body>
     <%@include file="/WEB-INF/pages/include/sidebar.jsp"%>
     <div class="container">
+        <c:if test="parentItem != null">
+            <div class="banner">
+                <span>${parentItem.name}</span>
+            </div>
+        </c:if>
         <c:forEach items="${items}" var="item">
             <div class="item">
                 <img src="${item.logoUrl}" />
-                <span>${item.title}</span>
+                <label>${item.title}</label>
+                <span>${item.intro}</span>
             </div>
         </c:forEach>
     </div>

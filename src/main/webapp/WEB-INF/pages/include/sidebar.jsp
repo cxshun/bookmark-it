@@ -34,16 +34,6 @@
                 <li><a href="">标签</a></li>
             </ul>
         </div>
-        <div>
-            <c:forEach items="${items}" var="item">
-                <div class="item">
-                    <div class="">
-                        <img src="${item.name}" />
-                        <label>${item.parentName}</label>
-                    </div>
-                </div>
-            </c:forEach>
-        </div>
     </div>
 </body>
 </html>
